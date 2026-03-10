@@ -1,0 +1,23 @@
+region                          = "East US"
+resource_group_name             = "assignment1-rg"
+automation_account_name         = "assignment1autoacct"
+log_analytics_name              = "assignment1-law"
+log_analytics_retention_in_days = 30
+update_configuration_name       = "assignment1-weekly-patching"
+vm_id                           = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/assignment1-rg/providers/Microsoft.Compute/virtualMachines/assignment1-web-vm"
+schedule_start_date             = "2026-03-15"
+schedule_timezone               = "UTC"
+schedule_duration               = "PT2H"
+
+schedule_times = [
+  {
+    day  = "Sunday"
+    time = "02:00"
+  }
+]
+
+tags = {
+  environment = "assignment"
+  workload    = "patch-management"
+  owner       = "student"
+}
