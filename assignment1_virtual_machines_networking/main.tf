@@ -47,7 +47,7 @@ resource "azurerm_resource_group" "main" {
 }
 
 module "vnet" {
-  source                  = "./modules/vnet"
+  source                  = "../modules/vnet"
   name                    = var.vnet_name
   resource_group_name     = azurerm_resource_group.main.name
   region                  = azurerm_resource_group.main.location
@@ -58,7 +58,7 @@ module "vnet" {
 }
 
 module "nsg" {
-  source              = "./modules/nsg"
+  source              = "../modules/nsg"
   name                = var.nsg_name
   resource_group_name = azurerm_resource_group.main.name
   region              = azurerm_resource_group.main.location
@@ -67,7 +67,7 @@ module "nsg" {
 }
 
 module "vm" {
-  source              = "./modules/vm"
+  source              = "../modules/vm"
   name                = var.vm_name
   resource_group_name = azurerm_resource_group.main.name
   region              = azurerm_resource_group.main.location

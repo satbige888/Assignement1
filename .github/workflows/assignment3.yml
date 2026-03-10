@@ -1,0 +1,43 @@
+name: Assignment 3 CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'assignment3_full_environment/**'
+      - 'modules/**'
+      - '.github/workflows/assignment3.yml'
+  pull_request:
+    paths:
+      - 'assignment3_full_environment/**'
+      - 'modules/**'
+      - '.github/workflows/assignment3.yml'
+  workflow_dispatch:
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: assignment3_full_environment
+    env:
+      TF_IN_AUTOMATION: true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.9.8
+
+      - name: Check formatting
+        run: terraform fmt -check -recursive
+
+      - name: Initialize Terraform
+        run: terraform init -backend=false
+
+      - name: Validate Terraform
+        run: terraform validate

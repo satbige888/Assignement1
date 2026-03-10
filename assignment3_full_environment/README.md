@@ -23,7 +23,7 @@ Deploy a Linux VM with networking, NSG access, and patch management in one run.
 - Tags
 - Schedule times
 
-Those values are set in [examples/full_environment/terraform.tfvars](examples/full_environment/terraform.tfvars).
+Those values are set in [assignment3_full_environment/terraform.tfvars](assignment3_full_environment/terraform.tfvars).
 
 ## Architecture
 
@@ -50,7 +50,7 @@ Automation Account ---- Log Analytics Workspace
 
 ## Usage
 
-1. Open [examples/full_environment/terraform.tfvars](examples/full_environment/terraform.tfvars) and adjust values if needed.
+1. Open [assignment3_full_environment/terraform.tfvars](assignment3_full_environment/terraform.tfvars) and adjust values if needed.
 2. In this folder, run `terraform init`.
 3. Run `terraform plan`.
 4. Run `terraform apply`.
