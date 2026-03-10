@@ -56,6 +56,13 @@ Automation Account ---- Log Analytics Workspace
 4. Run `terraform apply`.
 5. After deployment, browse to `http://<public_ip>`.
 
+## Files
+
+- `main.tf`: provider setup, resources, and module composition
+- `variables.tf`: configurable inputs for the full environment
+- `outputs.tf`: public IP, VM ID, and patch-management outputs
+- `terraform.tfvars`: example configuration values
+
 ## Why This Root Exists
 
 - It combines all previous modules into one environment.
