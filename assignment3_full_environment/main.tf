@@ -178,7 +178,7 @@ resource "azurerm_resource_group" "main" {
 }
 
 module "vnet" {
-  source                  = "../../modules/vnet"
+  source                  = "../modules/vnet"
   name                    = var.vnet_name
   resource_group_name     = azurerm_resource_group.main.name
   region                  = azurerm_resource_group.main.location
@@ -189,7 +189,7 @@ module "vnet" {
 }
 
 module "nsg" {
-  source              = "../../modules/nsg"
+  source              = "../modules/nsg"
   name                = var.nsg_name
   resource_group_name = azurerm_resource_group.main.name
   region              = azurerm_resource_group.main.location
@@ -198,7 +198,7 @@ module "nsg" {
 }
 
 module "vm" {
-  source              = "../../modules/vm"
+  source              = "../modules/vm"
   name                = var.vm_name
   resource_group_name = azurerm_resource_group.main.name
   region              = azurerm_resource_group.main.location
@@ -211,7 +211,7 @@ module "vm" {
 }
 
 module "automation_account" {
-  source              = "../../modules/automation_account"
+  source              = "../modules/automation_account"
   name                = var.automation_account_name
   resource_group_name = azurerm_resource_group.main.name
   region              = azurerm_resource_group.main.location
@@ -219,7 +219,7 @@ module "automation_account" {
 }
 
 module "log_analytics" {
-  source              = "../../modules/log_analytics"
+  source              = "../modules/log_analytics"
   name                = var.log_analytics_name
   resource_group_name = azurerm_resource_group.main.name
   region              = azurerm_resource_group.main.location
@@ -228,7 +228,7 @@ module "log_analytics" {
 }
 
 module "update_management" {
-  source                = "../../modules/update_management"
+  source                = "../modules/update_management"
   name                  = var.update_configuration_name
   resource_group_name   = azurerm_resource_group.main.name
   automation_account_id = module.automation_account.automation_account_id

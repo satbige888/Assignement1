@@ -14,7 +14,7 @@ provider "azurerm" {
 }
 
 module "automation_account" {
-  source              = "../../modules/automation_account"
+  source              = "../modules/automation_account"
   name                = var.automation_account_name
   resource_group_name = var.resource_group_name
   region              = var.region
@@ -22,7 +22,7 @@ module "automation_account" {
 }
 
 module "log_analytics" {
-  source              = "../../modules/log_analytics"
+  source              = "../modules/log_analytics"
   name                = var.log_analytics_name
   resource_group_name = var.resource_group_name
   region              = var.region
@@ -31,7 +31,7 @@ module "log_analytics" {
 }
 
 module "update_management" {
-  source                = "../../modules/update_management"
+  source                = "../modules/update_management"
   name                  = var.update_configuration_name
   resource_group_name   = var.resource_group_name
   automation_account_id = module.automation_account.automation_account_id
